@@ -12,7 +12,9 @@ const Home: NextPage = () => {
     return await data.data;
   };
 
-  const { data, error, status } = useQuery(['devices'], fetcher);
+  const { data, error, status } = useQuery(['devices'], fetcher, {
+    refetchInterval: 180000,
+  });
 
   return (
     <Container bgColor={'gray.100'}>
