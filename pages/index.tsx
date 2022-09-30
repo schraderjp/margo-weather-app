@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const { data, error, status } = useQuery(['devices'], fetcher);
 
   return (
-    <Container>
+    <Container bgColor={'gray.100'}>
       <Heading textAlign={'center'} as="h1" size="xl" py={'2'}>
         Weather in Margo, VA
       </Heading>
@@ -28,6 +28,11 @@ const Home: NextPage = () => {
         >
           <Spinner />
         </Flex>
+      )}
+      {status === 'error' && (
+        <Text textAlign={'center'} width="full">
+          Error!
+        </Text>
       )}
       {status === 'success' && (
         <>

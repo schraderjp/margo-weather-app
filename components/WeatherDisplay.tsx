@@ -10,6 +10,7 @@ import {
   VStack,
   HStack,
   Box,
+  Text,
 } from '@chakra-ui/react';
 import { FaThermometerHalf, FaWind, FaCloudRain } from 'react-icons/fa';
 import React from 'react';
@@ -32,268 +33,460 @@ const WeatherDisplay = ({ weatherInfo }: { weatherInfo: any }) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <StatGroup>
+            <StatGroup gap="4">
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
+                bgColor={'white'}
                 justifyContent={'center'}
-                width="32"
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
+                height={'20'}
               >
-                <StatLabel textAlign={'center'}>Temperature</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaThermometerHalf size={16} />
+                    Temperature
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <FaThermometerHalf size={24} />
-                    </Box>
-                    {weatherInfo.tempf}°F
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.tempf}
+                    <Text fontSize={'sm'}>°F</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
-                width="32"
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                bgColor={'white'}
+                width="36"
+                height={'20'}
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Feels Like</StatLabel>
+                <StatLabel>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaThermometerHalf size={16} />
+                    Feels Like
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <FaThermometerHalf size={24} />
-                    </Box>
-                    {weatherInfo.feelsLike}°F
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.feelsLike}
+                    <Text fontSize={'sm'}>°F</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                bgColor={'white'}
+                borderRadius="6"
+                height={'20'}
                 alignItems="center"
                 justifyContent={'center'}
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                width="32"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Humidity</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiHumidity size={20} />
+                    Humidity
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <WiHumidity size={24} />
-                    </Box>
-                    {weatherInfo.humidity}%
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.humidity}
+                    <Text fontSize={'sm'}>%</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
+                bgColor={'white'}
                 flexDir="row"
+                height={'20'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                width="48"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Wind Direction</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiWindDeg size={20} />
+                    Wind Direction
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <WiWindDeg size={24} />
-                    </Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
                     {weatherInfo.winddir}°
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
+                bgColor={'white'}
                 justifyContent={'center'}
                 flexDir="row"
+                height={'20'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                width="48"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Wind Speed</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiStrongWind size={24} />
+                    Wind Speed
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <WiStrongWind size={24} />
-                    </Box>
-                    {weatherInfo.windspeedmph} mph
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.windspeedmph} <Text fontSize={'sm'}> mph</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
+                height={'20'}
                 justifyContent={'center'}
                 flexDir="row"
+                bgColor={'white'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                width="48"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Wind Gust Speed</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaWind size={16} />
+                    Gust Speed
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <FaWind size={24} />
-                    </Box>
-                    {weatherInfo.windgustmph} mph
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.windgustmph} <Text fontSize={'sm'}> mph</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
-                width="48"
                 flexDir="row"
+                bgColor={'white'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                height={'20'}
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Dew Point</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <GiDew size={16} />
+                    Dew Point
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={4}>
-                      <GiDew size={24} />
-                    </Box>
-                    {weatherInfo.dewPoint}°F
+                  <StatNumber>
+                    <Box pr={3}></Box>
+                    <Flex justifyContent="center" gap="2" align={'end'}>
+                      {weatherInfo.dewPoint}
+                      <Text fontSize={'sm'}>°F</Text>
+                    </Flex>
+                  </StatNumber>
+                </StatNumber>
+              </Stat>
+              <Stat
+                display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
+                alignItems="center"
+                height={'20'}
+                justifyContent={'center'}
+                flexDir="row"
+                bgColor={'white'}
+                flexWrap={'nowrap'}
+                flex="0 0 auto"
+                width="36"
+                p="1"
+              >
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <GiSunRadiations size={16} />
+                    Solar Radiation
+                  </Flex>
+                </StatLabel>
+                <StatNumber>
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.solarradiation}
+                    <Text fontSize={'sm'}>W/m^2</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
                 flexDir="row"
+                height={'20'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                width="48"
-                p="3"
+                bgColor={'white'}
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Solar Radiation</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaCloudRain size={16} />
+                    Daily Rain
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <GiSunRadiations size={24} />
-                    </Box>
-                    {weatherInfo.solarradiation} W/m^2
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.dailyrainin} <Text fontSize={'sm'}> in</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
+                height={'20'}
                 alignItems="center"
                 justifyContent={'center'}
-                width="32"
                 flexDir="row"
+                bgColor={'white'}
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Daily Rain</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiBarometer size={16} />
+                    Rel Bar Press
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <FaCloudRain size={24} />
-                    </Box>
-                    {weatherInfo.dailyrainin} in
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.baromrelin} <Text fontSize={'sm'}> inHg</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
+                height={'20'}
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
-                width=""
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                bgColor={'white'}
+                width="36"
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Rel. Bar. Press.</StatLabel>
-                <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <WiBarometer size={24} />
-                    </Box>
-                    {weatherInfo.baromrelin} inHg
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiBarometer size={16} />
+                    Abs Bar Press
                   </Flex>
-                </StatNumber>
-              </Stat>
-              <Stat
-                display={'flex'}
-                alignItems="center"
-                justifyContent={'center'}
-                width="48"
-                flexDir="row"
-                flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
-              >
-                <StatLabel textAlign={'center'}>Abs. Bar. Press.</StatLabel>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <WiBarometer size={24} />
-                    </Box>
-                    {weatherInfo.baromabsin} inHg
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.baromabsin} <Text fontSize={'sm'}> inHg</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
             </StatGroup>
           </TabPanel>
           <TabPanel>
-            <StatGroup display={'flex'} gap="10">
+            <StatGroup gap="4">
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
+                bgColor={'white'}
                 justifyContent={'center'}
-                width="48"
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                width="36"
+                p="1"
+                height={'20'}
               >
-                <StatLabel textAlign={'center'}>Temperature</StatLabel>
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaThermometerHalf size={16} />
+                    Temperature
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr={3}>
-                      <FaThermometerHalf size={24} />
-                    </Box>
-                    {weatherInfo.tempinf}°F
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.tempinf}
+                    <Text fontSize={'sm'}>°F</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
               <Stat
                 display={'flex'}
+                shadow={'md'}
+                borderRadius="6"
                 alignItems="center"
                 justifyContent={'center'}
-                width="32"
                 flexDir="row"
                 flexWrap={'nowrap'}
-                flex="1 0 auto"
-                p="3"
+                flex="0 0 auto"
+                bgColor={'white'}
+                width="36"
+                height={'20'}
+                p="1"
               >
-                <StatLabel textAlign={'center'}>Humidity</StatLabel>
+                <StatLabel>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <FaThermometerHalf size={16} />
+                    Feels Like
+                  </Flex>
+                </StatLabel>
                 <StatNumber>
-                  <Flex align={'center'}>
-                    <Box pr="2">
-                      <WiHumidity size={24} />
-                    </Box>
-                    {weatherInfo.humidityin}%
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.feelsLikein}
+                    <Text fontSize={'sm'}>°F</Text>
+                  </Flex>
+                </StatNumber>
+              </Stat>
+              <Stat
+                display={'flex'}
+                shadow={'md'}
+                bgColor={'white'}
+                borderRadius="6"
+                height={'20'}
+                alignItems="center"
+                justifyContent={'center'}
+                flexDir="row"
+                flexWrap={'nowrap'}
+                flex="0 0 auto"
+                width="36"
+                p="1"
+              >
+                <StatLabel textAlign={'center'}>
+                  <Flex
+                    gap="1"
+                    justifyContent={'center'}
+                    alignItems="center"
+                    pr={3}
+                  >
+                    <WiHumidity size={20} />
+                    Humidity
+                  </Flex>
+                </StatLabel>
+                <StatNumber>
+                  <Box pr={3}></Box>
+                  <Flex justifyContent="center" gap="2" align={'end'}>
+                    {weatherInfo.humidityin}
+                    <Text fontSize={'sm'}>%</Text>
                   </Flex>
                 </StatNumber>
               </Stat>
