@@ -17,35 +17,44 @@ const Home: NextPage = () => {
   });
 
   return (
-    <Container bgColor={'gray.100'}>
-      <Heading textAlign={'center'} as="h1" size="xl" py={'2'}>
-        Weather in Margo, VA
-      </Heading>
-      {status === 'loading' && (
-        <Flex
-          width={'full'}
-          alignItems="center"
-          justifyContent={'center'}
-          pt="4"
-        >
-          <Spinner />
-        </Flex>
-      )}
-      {status === 'error' && (
-        <Text textAlign={'center'} width="full">
-          Error!
-        </Text>
-      )}
-      {status === 'success' && (
-        <>
-          <Text py="2" textAlign={'center'}>
-            <strong>Updated:</strong>{' '}
-            {format(data[0].dateutc, "M/dd/yyyy 'at' h:mm a")}
+    <Flex
+      pos={'fixed'}
+      top="0"
+      left="0"
+      bgColor={'gray.100'}
+      style={{ width: '100vw', height: '100vh' }}
+      overflowY="auto"
+    >
+      <Container bgColor={'gray.100'}>
+        <Heading textAlign={'center'} as="h1" size="xl" py={'2'}>
+          Weather in Margo, VA
+        </Heading>
+        {status === 'loading' && (
+          <Flex
+            width={'full'}
+            alignItems="center"
+            justifyContent={'center'}
+            pt="4"
+          >
+            <Spinner />
+          </Flex>
+        )}
+        {status === 'error' && (
+          <Text textAlign={'center'} width="full">
+            Error!
           </Text>
-          <WeatherDisplay weatherInfo={data[0]} />
-        </>
-      )}
-    </Container>
+        )}
+        {status === 'success' && (
+          <>
+            <Text py="2" textAlign={'center'}>
+              <strong>Updated:</strong>{' '}
+              {format(data[0].dateutc, "M/dd/yyyy 'at' h:mm a")}
+            </Text>
+            <WeatherDisplay weatherInfo={data[0]} />
+          </>
+        )}
+      </Container>
+    </Flex>
   );
 };
 
